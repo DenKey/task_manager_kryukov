@@ -7,7 +7,7 @@
  <div class="todo-links">
   <%= link_to "Done", done_list_todo_path(@list, todo.id), method: :patch %>
   <%= link_to "Edit", edit_list_todo_path(@list, todo.id) %>
- 	<%= link_to "Delete", list_todo_path(@list, todo.id), method: :delete,
+  <%= link_to "Delete", list_todo_path(@list, todo.id), method: :delete,
  data: { confirm: "You are sure ?" } %>	
  </div>
 </div>

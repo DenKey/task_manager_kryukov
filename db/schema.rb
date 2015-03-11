@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311083426) do
+ActiveRecord::Schema.define(version: 20150311103532) do
 
   create_table "lists", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150311083426) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.datetime "done"
+    t.datetime "deadline"
   end
 
   add_index "todos", ["list_id"], name: "index_todos_on_list_id", using: :btree

@@ -4,4 +4,8 @@ class Todo < ActiveRecord::Base
   def done?
   	self.done.present?
   end
+
+  def deadline?
+  	self.deadline.present?
+  end
 end
