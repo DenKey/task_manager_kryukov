@@ -8,4 +8,5 @@ class Todo < ActiveRecord::Base
   def deadline?
   	self.deadline.present?
   end
+
 end
