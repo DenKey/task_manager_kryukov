@@ -1,0 +1,9 @@
+<h1>Editing Todo</h1>
+
+<%= form_for([@list, @todo]) do |f| %>
+	<%= f.text_field :content %>
+	<%= f.submit %>
+<% end %>
+
+<%= link_to 'Show', @list %> |
+<%= link_to 'Back', lists_path %>

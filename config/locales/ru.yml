@@ -2,3 +2,6 @@ ru:
   todo_delete: "Задача удалена"
   todo_not_delete: "Не удалось удалить задачу"
   you_sure: "Вы уверены"
+  task_done: "Задача выполнена"
+  task_update: "Задача обновлена"
+  task_not_update: "Не удалось обновить задачу"
