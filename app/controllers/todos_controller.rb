@@ -3,8 +3,9 @@ class TodosController < ApplicationController
 	before_action :set_todo, except: [:create]
 
 	def create
-		@todo = @list.todo.create(todo_params)
-		redirect_to @list
+		@list = List.find(params[:list_id])
+		@todo = @list.todo.create(:content => params[:content])
+		redirect_to root_url
 	end
 
     def	destroy

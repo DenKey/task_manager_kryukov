@@ -64,7 +64,14 @@ html,body {
 }
 
 #inherit-panel-heading {
-
+  @include gradient-vertical(#f2fce2, #e7e7ed, 0%, 100%);
+  span {
+    color: #1dc937;
+    font-size: 24px;
+    padding-right:10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
 }
 
 #inherit-panel-body {
@@ -83,3 +90,8 @@ html,body {
   margin-top: 4px;
   margin-bottom: 4px;
 }
+
+#todo-input {
+  width: 220%;
+}
+
