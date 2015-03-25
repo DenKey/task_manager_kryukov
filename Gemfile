@@ -18,6 +18,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-font-awesome'
 end
 
+gem 'bootstrap_form'
+
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 group :development, :test do
