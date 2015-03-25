@@ -1,0 +1,80 @@
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+html,body {
+  @include gradient-vertical(#c7f1ee, #cda555, 0%, 100%);
+}
+
+#col {
+  padding: 10px;
+  @include gradient-vertical(#1834cc, #1dc937, 0%, 100%);
+}
+
+#create_list {
+  padding-top: 5%;
+  a:visited {
+    color: #ffffff;
+  }
+}
+
+#copyright {
+  padding-top: 5%;
+  span {
+    color: #ffffff;
+    text-decoration-color: #1834cc;
+  }
+}
+
+#header {
+  text-align: center;
+  padding-bottom: 5%;
+  h1{
+    margin-bottom: 0.1em; /* Отступ сверху */
+  }
+  h3 {
+    margin-top: 0em; /* Отступ сверху */
+  }
+}
+
+#list-panel {
+  span {
+    color: none;
+  }
+  h3 {
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+#panel-body {
+  padding: 0px;
+}
+
+#inherit-panel-second {
+  margin-bottom: 0px;
+  border-radius: 0px;
+}
+
+#inherit-panel-heading {
+
+}
+
+#inherit-panel-body {
+
+}
+
+.icon {
+  color: #333;
+  font-size: 16px;
+}

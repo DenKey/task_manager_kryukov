@@ -11,6 +11,15 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 
+# Added Bootstrap
+gem 'bootstrap-sass', '>= 3.3.3'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-metisMenu'
+  gem 'rails-assets-font-awesome'
+end
+
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
