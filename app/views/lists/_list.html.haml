@@ -1,13 +1,16 @@
 #list-panel.panel.panel-primary
-  .panel-heading
-    %span.icon.glyphicon.glyphicon-list-alt{ "aria-hidden" => "true" }
-    %h3.panel-title{ :title => list.description }
-      = list.title
-    = link_to edit_list_path(list) do
-      %span.icon.glyphicon.glyphicon-pencil{ "aria-hidden" => "true" }
-    \|
-    = link_to list, method: :delete, data: { confirm: 'Are you sure?' } do
-      %span.icon.glyphicon.glyphicon-trash{ "aria-hidden" => "true" }
+  .panel-heading.clearfix
+    .pull-left
+      %span.icon.glyphicon.glyphicon-list-alt{ "aria-hidden" => "true" }
+    .pull-left
+      %h3{ :title => list.description }
+        = list.title
+    .pull-right
+      = link_to edit_list_path(list) do
+        %span.icon-right.glyphicon.glyphicon-pencil{ "aria-hidden" => "true" }
+      \|
+      = link_to list, method: :delete, data: { confirm: 'Are you sure?' } do
+        %span.icon-right.glyphicon.glyphicon-trash{ "aria-hidden" => "true" }
   #panel-body.panel-body
     #inherit-panel-second.panel.panel-default
       #inherit-panel-heading.panel-heading
