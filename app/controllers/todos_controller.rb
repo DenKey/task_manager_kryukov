@@ -5,7 +5,7 @@ class TodosController < ApplicationController
 	def create
 		@list = List.find(params[:list_id])
 		@todo = @list.todo.create(:content => params[:content])
-		redirect_to root_url
+		redirect_to lists_path
 	end
 
     def	destroy
@@ -14,12 +14,12 @@ class TodosController < ApplicationController
     	else
     		flash[:error] = t('todo_not_delete')
     	end
-    	redirect_to root_url
+    	redirect_to lists_path
     end
 
     def done
     	@todo.update_attribute(:done, Time.now)
-    	redirect_to root_url, notice: t('task_done')
+    	redirect_to lists_path, notice: t('task_done')
     end
 
     def edit	
@@ -31,7 +31,7 @@ class TodosController < ApplicationController
     	else
     		flash[:error] = t('task_not_update')
     	end
-    	redirect_to root_url
+    	redirect_to lists_path
     end
 
 	private

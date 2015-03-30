@@ -1,0 +1,12 @@
+.login-panel.panel.panel-primary
+  .panel-heading
+    Please login
+  .panel-body
+    = bootstrap_form_tag url: session_path(:user) do |f|
+      = devise_error_messages!
+      = f.email_field 'user[email]', label: "Email"
+      = f.password_field 'user[password]', label: "Password"
+      = f.check_box 'user[remember_me]', label: "Remember Me"
+      = f.primary "Login"
+      %br/
+      = link_to "Forgot your password?", new_user_password_path

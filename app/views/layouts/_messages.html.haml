@@ -1,0 +1,9 @@
+- flash.each do |key, value|
+  - if value.present?
+    #dialog-message
+      %div.alert{ :class => "alert-#{key}" }
+        %a.close{ :href => "#", :data => { :dismiss => "alert" } }
+          x
+        %ul
+          %li
+            = value

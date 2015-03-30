@@ -1,0 +1,9 @@
+.row
+  %ul.nav.nav-pills.nav-panel
+    %li{class: current_page?(lists_path) && 'active',role: "presentation"}
+      = link_to "Lists", lists_path
+    %li{class: current_page?(edit_user_registration_path) && 'active',role: "presentation"}
+      = link_to 'Profile', edit_user_registration_path
+    %li{:role => "presentation"}
+      = link_to "Logout" ,destroy_user_session_path ,method: :delete
+

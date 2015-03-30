@@ -1,0 +1,10 @@
+.login-panel.panel.panel-primary
+  .panel-heading
+    Registration
+  .panel-body
+    = bootstrap_form_tag url: registration_path(:user) do |f|
+      = devise_error_messages!
+      = f.email_field 'user[email]', label: "Email"
+      = f.password_field 'user[password]', label: "Password(8 symbols min.)", autocomplete: "off"
+      = f.password_field 'user[password_confirmation]',label: "Confirm Password",autocomplete: "off"
+      = f.primary "Register"

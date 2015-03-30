@@ -7,6 +7,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    = render "layouts/messages"
     .container
       .col-md-8.col-md-offset-2
         #header.row
@@ -14,14 +15,11 @@
             Simple TODO List
           %h3
             From Denys Kriukov
+        - if user_signed_in?
+          = render "lists/nav"
         .row
         = yield
         .row
-          #create_list.text-center
-            = link_to( new_list_path, html_options = {"class" => "btn btn-primary btn-lg", "aria-label" => "Left Align" }) do
-              %span.glyphicon.glyphicon-plus{"aria-hidden" => "true"}
-              Add TODO list
-        .row
           #copyright.text-center
             %span
-              © Denys Kriukov
+              = mail_to "denis.kryukov@aol.com","© Denys Kriukov"

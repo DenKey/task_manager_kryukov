@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root "static_pages#index"
+
   resources :lists do
     resources :todos do
     	member do
@@ -7,6 +10,14 @@ Rails.application.routes.draw do
     end
   end
   
-  root "lists#index"
-
+  devise_for :user, path: "",
+    :controllers => {
+      :registrations => "registrations"
+    },
+    path_names: {
+        :sign_in => "login",
+        :sign_out => "logout",
+        :registrations => "register",
+        :edit => "profile"
+    }
 end
