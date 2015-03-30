@@ -22,3 +22,7 @@
               = text_field_tag :content, nil, class: "form-control", id: "todo-input"
               = submit_tag "Add Task", class: "btn btn-success"
       #inherit-panel-body.panel-body
+        .table-responsive
+          %table.table.table-hover
+            %tbody
+              = render list.todo, list: list

@@ -1,10 +1,16 @@
-.todo
-  - if todo.done?
-    %strike
+%tr
+  %td{:colspan => "1"}
+    = link_to "Done", done_list_todo_path(list, todo.id), method: :patch
+  %td{:colspan => "8"}
+    - if todo.done?
+      %strike
+        = todo.content
+    - else
       = todo.content
-  - else
-    = todo.content
-.todo-links
-  = link_to "Done", done_list_todo_path(@list, todo.id), method: :patch
-  = link_to "Edit", edit_list_todo_path(@list, todo.id)
-  = link_to "Delete", list_todo_path(@list, todo.id), method: :delete, data: { confirm: "You are sure ?" }
+  %td{:colspan => "2"}
+    %span.glyphicon.glyphicon-triangle-top{ "aria-hidden" => "true" }
+    %span.glyphicon.glyphicon-triangle-bottom{ "aria-hidden" => "true" }
+    = link_to edit_list_todo_path(list, todo.id) do
+      %span.glyphicon.glyphicon-pencil{ "aria-hidden" => "true" }
+    = link_to list_todo_path(list, todo.id), method: :delete, data: { confirm: "You are sure ?" } do
+      %span.glyphicon.glyphicon-trash{ "aria-hidden" => "true" }

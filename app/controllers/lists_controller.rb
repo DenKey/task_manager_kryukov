@@ -8,11 +8,6 @@ class ListsController < ApplicationController
     render 'lists/index'
   end
 
-  # GET /lists/1
-  # GET /lists/1.json
-  def show
-  end
-
   # GET /lists/new
   def new
     @list = List.new
