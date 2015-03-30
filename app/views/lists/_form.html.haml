@@ -10,6 +10,8 @@
             = message
 
   .field
+    = hidden_field(:user, :id)
+    %input{:type => "hidden", :id => "list[user_id]",:name => "list[user_id]", :value => "#{current_user.id}"}
     = f.label :title
     %br
     = f.text_field :title
