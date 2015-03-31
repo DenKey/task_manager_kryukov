@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
 gem 'rails', '4.2.0'
 gem 'mysql2'
 gem 'sass-rails', '~> 5.0'
@@ -12,6 +13,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem 'devise'
 gem 'mailcatcher'
+gem 'rails_12factor'
+
 
 # Added Bootstrap
 gem 'bootstrap-sass', '>= 3.3.3'
