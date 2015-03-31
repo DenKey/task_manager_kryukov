@@ -19,8 +19,13 @@ class TodosController < ApplicationController
 
     def done
     	@todo.update_attribute(:done, Time.now)
-    	redirect_to lists_path, notice: t('task_done')
-    end
+    	redirect_to lists_path
+		end
+
+		def undone
+			@todo.update_attribute(:done, nil)
+			redirect_to lists_path
+		end
 
     def edit	
     end

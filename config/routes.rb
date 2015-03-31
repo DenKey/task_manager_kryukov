@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :todos do
     	member do
     		patch :done
+    		patch :undone
     	end
     end
   end

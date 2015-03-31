@@ -1,6 +1,4 @@
 %tr
-  %td{:colspan => "1"}
-    = link_to "Done", done_list_todo_path(list, todo.id), method: :patch
   %td{:colspan => "8"}
     - if todo.done?
       %strike
@@ -8,9 +6,12 @@
     - else
       = todo.content
   %td{:colspan => "2"}
-    %span.glyphicon.glyphicon-triangle-top{ "aria-hidden" => "true" }
-    %span.glyphicon.glyphicon-triangle-bottom{ "aria-hidden" => "true" }
-    = link_to edit_list_todo_path(list, todo.id) do
-      %span.glyphicon.glyphicon-pencil{ "aria-hidden" => "true" }
-    = link_to list_todo_path(list, todo.id), method: :delete, data: { confirm: "You are sure ?" } do
-      %span.glyphicon.glyphicon-trash{ "aria-hidden" => "true" }
+    .pull-right
+      = link_to done_list_todo_path(list, todo.id), method: :patch do
+        %span.glyphicon.glyphicon-ok-circle{ "aria-hidden" => "true", :title => "Done" }
+      = link_to undone_list_todo_path(list, todo.id), method: :patch do
+        %span.glyphicon.glyphicon-remove-circle{ "aria-hidden" => "true", :title => "Undone" }
+      = link_to edit_list_todo_path(list, todo.id) do
+        %span.glyphicon.glyphicon-pencil{ "aria-hidden" => "true",:title => "Edit"  }
+      = link_to list_todo_path(list, todo.id), method: :delete, data: { confirm: "You are sure ?" } do
+        %span.glyphicon.glyphicon-trash{ "aria-hidden" => "true",:title => "Remove"  }
