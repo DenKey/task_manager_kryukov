@@ -1,7 +1,8 @@
+= render "lists/modalCreate"
 - @lists.each do |list|
   = render 'lists/list', list: list
 .row
   #create_list.text-center
-    = link_to( new_list_path, html_options = {"class" => "btn btn-primary btn-lg", "aria-label" => "Left Align" }) do
+    = link_to( "#", html_options = {"class" => "btn btn-primary btn-lg", "aria-label" => "Left Align","data-target" => "#myModal", "data-toggle" => "modal" }) do
       %span.glyphicon.glyphicon-plus{"aria-hidden" => "true"}
       Add TODO list

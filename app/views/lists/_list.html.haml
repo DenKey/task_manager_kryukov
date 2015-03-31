@@ -1,4 +1,4 @@
-#list-panel.panel.panel-primary
+.list-panel.panel.panel-primary{:id => "list#{list.id}"}
   .panel-heading.clearfix
     .pull-left
       %span.icon.glyphicon.glyphicon-list-alt{ "aria-hidden" => "true" }
@@ -9,7 +9,7 @@
       = link_to edit_list_path(list) do
         %span.icon-right.glyphicon.glyphicon-pencil{ "aria-hidden" => "true" }
       \|
-      = link_to list, method: :delete, data: { confirm: 'Are you sure?' } do
+      = link_to list, remote: true,method: :delete, id: "deletelist",data: { confirm: 'Are you sure?' } do
         %span.icon-right.glyphicon.glyphicon-trash{ "aria-hidden" => "true" }
   #panel-body.panel-body
     #inherit-panel-second.panel.panel-default

@@ -1,16 +1,17 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
+  layout false, :except => :index
   # GET /lists
   # GET /lists.json
   def index
     @lists = User.find_by(id: current_user.id).list
+    @list = List.new
     render 'lists/index'
   end
 
   # GET /lists/new
   def new
-    @list = List.new
   end
 
   # GET /lists/1/edit
@@ -22,14 +23,10 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
 
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to lists_path, notice: 'List was successfully created.' }
-        format.json { render :show, status: :created, location: @list }
-      else
-        format.html { render :new }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+    if @list.save
+      render :text => "OK"
+    else
+      render :text => @list.errors.to_json
     end
   end
 
@@ -50,11 +47,9 @@ class ListsController < ApplicationController
   # DELETE /lists/1
   # DELETE /lists/1.json
   def destroy
+    id = @list.id
     @list.destroy
-    respond_to do |format|
-      format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    render :text => id
   end
 
   private

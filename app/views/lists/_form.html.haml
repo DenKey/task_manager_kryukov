@@ -1,4 +1,4 @@
-= form_for(@list) do |f|
+= bootstrap_form_for(@list,remote: true, datatype: 'json') do |f|
   - if @list.errors.any?
     #error_explanation
       %h2
@@ -9,15 +9,9 @@
           %li
             = message
 
-  .field
+  .block-center
     = hidden_field(:user, :id)
     %input{:type => "hidden", :id => "list[user_id]",:name => "list[user_id]", :value => "#{current_user.id}"}
-    = f.label :title
-    %br
     = f.text_field :title
-  .field
-    = f.label :description
-    %br
     = f.text_area :description
-  .actions
-    = f.submit
+    = f.primary "Add TODO list"
