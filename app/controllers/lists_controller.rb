@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
-  layout false, :except => :index
+  layout false, :except => [ :index , :edit ]
   # GET /lists
   # GET /lists.json
   def index
@@ -35,7 +35,7 @@ class ListsController < ApplicationController
   def update
     respond_to do |format|
       if @list.update(list_params)
-        format.html { redirect_to lists_path, notice: 'List was successfully updated.' }
+        format.html { redirect_to lists_path }
         format.json { render :show, status: :ok, location: @list }
       else
         format.html { render :edit }
