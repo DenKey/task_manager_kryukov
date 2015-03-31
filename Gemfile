@@ -12,7 +12,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem 'devise'
 gem 'mailcatcher'
-gem "sqlite3"
 
 # Added Bootstrap
 gem 'bootstrap-sass', '>= 3.3.3'
