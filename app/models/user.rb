@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :list, dependent: :destroy
+  has_many :identity, class_name: "Identity", foreign_key: "uid"
 
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
