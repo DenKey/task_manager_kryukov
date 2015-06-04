@@ -1,5 +1,5 @@
 class Identity < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :useriden
   validates_presence_of :uid, :provider
   validates_uniqueness_of :uid, :scope => :provider
 
