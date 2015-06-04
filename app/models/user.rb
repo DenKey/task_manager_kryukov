@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  require "../../app/models/identity"
   TEMP_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   TEMP_EMAIL_PREFIX = 'oauth@me'
 
@@ -6,7 +7,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+
   has_many :list, dependent: :destroy
+  has_many :identities, class_name: "Identity", foreign_key: "uid"
 
 
   def self.find_for_oauth(auth, signed_in_resource = nil)

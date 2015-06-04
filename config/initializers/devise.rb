@@ -3,10 +3,6 @@ Devise.setup do |config|
   config.mailer_sender = 'no-reply@krtodolist.herokuapp.com'
 
   require 'devise/orm/active_record'
-  require 'omniauth'
-  require 'omniauth-linkedin'
-  require 'omniauth-facebook'
-  require 'omniauth-github'
 
   config.case_insensitive_keys = [ :email ]
 
