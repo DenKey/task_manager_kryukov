@@ -4,6 +4,9 @@ class StaticPagesController < ApplicationController
   def index
   end
 
+  def privacy_policy
+  end
+
   private
 
   def if_login
