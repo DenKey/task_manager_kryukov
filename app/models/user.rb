@@ -2,15 +2,17 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   TEMP_EMAIL_PREFIX = 'oauth@me'
 
+  has_many :list, dependent: :destroy
+
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable
+  # :lockable, :timeoutable :confirmable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  has_many :list, dependent: :destroy
-
+  validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
+
     # Get the identity and user if they exist
     identity = Identity.find_for_oauth(auth)
 
