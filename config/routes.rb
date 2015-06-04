@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   
   devise_for :user, path: "",
     :controllers => {
-      :registrations => "registrations"
+      :registrations => "registrations",
+      :omniauth_callbacks => "omniauth_callbacks"
     },
     path_names: {
         :sign_in => "login",
@@ -21,4 +22,7 @@ Rails.application.routes.draw do
         :registrations => "register",
         :edit => "profile"
     }
+
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
 end

@@ -1,0 +1,3 @@
+- if devise_mapping.omniauthable?
+  - resource_class.omniauth_providers.each do |provider|
+    = link_to image_tag("#{provider.to_s}_32.png", alt: "#{provider.to_s.titleize}", title: "Or with #{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider)

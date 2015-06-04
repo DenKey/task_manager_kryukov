@@ -8,5 +8,6 @@
       = f.password_field 'user[password]', label: "Password"
       = f.check_box 'user[remember_me]', label: "Remember Me"
       = f.primary "Login"
+      = render "layouts/omniauthable"
       %br/
       = link_to "Forgot your password?", new_user_password_path
