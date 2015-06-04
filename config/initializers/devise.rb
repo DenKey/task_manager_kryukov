@@ -3,6 +3,10 @@ Devise.setup do |config|
   config.mailer_sender = 'no-reply@krtodolist.herokuapp.com'
 
   require 'devise/orm/active_record'
+  require 'omniauth'
+  require 'omniauth-linkedin'
+  require 'omniauth-facebook'
+  require 'omniauth-github'
 
   config.case_insensitive_keys = [ :email ]
 
@@ -27,6 +31,6 @@ Devise.setup do |config|
 
   config.omniauth :facebook, "1598321553779556", "6f10f398d239dba4a46b3a0f75a7c6eb"
   config.omniauth :github, "35a4a5cacd40410b8636", "9ecf7cd66b5cb7a25fbcbbdd264f6a797d21ac1c"
-  config.omniauth :linked_in, "77riwztglqev7m", "zB0jReNI1le4wDTr"
+  config.omniauth :linkedin, "77riwztglqev7m", "zB0jReNI1le4wDTr"
 
 end

@@ -13,6 +13,6 @@ module StaticPagesHelper
   end
 
   def resource_class
-    Struct.new(:omniauth_providers).new([:github,:facebook,:linked_in])
+    Struct.new(:omniauth_providers).new([:github,:facebook,:linkedin])
   end
 end
