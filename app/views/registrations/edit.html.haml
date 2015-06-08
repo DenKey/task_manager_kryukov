@@ -4,7 +4,7 @@
   .panel-body
     = bootstrap_form_tag url: registration_path(:user), html: { method: :put } do |f|
       = devise_error_messages!
-      = f.email_field 'user[email]', label: "Email"
+      = f.email_field 'user[email]', label: "Email", value: current_user.email
       %i (leave blank if you don't want to change it)
       = f.password_field 'user[password]', label: "Password(8 symbols min.)", autocomplete: "off"
       = f.password_field 'user[password_confirmation]',label: "Confirm Password",autocomplete: "off"
