@@ -42,5 +42,6 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'warden', '~> 1.2.3'
 end
 
