@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "static_pages#index"
   get  "privacy_policy", controller: "static_pages", as: :privacy
 
+  resources :users
   resources :lists do
     resources :todos do
     	member do

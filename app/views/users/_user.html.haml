@@ -1,0 +1,10 @@
+%tr
+  %td
+    = user.id
+  %td
+    = user.email
+  %td
+    = user.last_sign_in_at.to_formatted_s(:short)
+  %td
+    = link_to user_path(id: user.id) , method: :delete,  data: { confirm: "You are sure ?" }  do
+      %span.glyphicon.glyphicon-remove(aria-hidden=true)

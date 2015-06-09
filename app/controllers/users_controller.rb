@@ -1,14 +1,23 @@
 class UsersController < ApplicationController
   def index
-  end
-
-  def show
-  end
-
-  def update
+    @users = User.paginate(page: params[:page], :per_page => 10)
   end
 
   def destroy
+    if current_user.admin?
+      user = User.find(params[:id])
+      if current_user.id == user.id
+        flash[:error] = "Sorry you can't delete himself"
+        redirect_to users_url and return
+      else
+        user.destroy
+        flash[:success] = "User delete"
+        redirect_to users_url
+      end
+    else
+      flash[:error] = "You not have premission"
+      redirect_to lists_url
+    end
   end
 
   def finish_signup
@@ -30,4 +39,5 @@ class UsersController < ApplicationController
     accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
     params.require(:user).permit(accessible)
   end
+
 end

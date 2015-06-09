@@ -4,6 +4,9 @@
       = link_to "Lists", lists_path
     %li{class: current_page?(edit_user_registration_path) && 'active',role: "presentation"}
       = link_to 'Profile', edit_user_registration_path
+    - if current_user.admin?
+      %li{class: current_page?(users_path) && 'active',role: "presentation"}
+        = link_to 'Manage', users_path
     %li{:role => "presentation"}
       = link_to "Logout" ,destroy_user_session_path ,method: :delete
 

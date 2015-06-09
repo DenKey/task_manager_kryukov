@@ -1,0 +1,21 @@
+.btn-toolbar
+.well
+  %table.table
+    %thead
+      %tr
+        %th #
+        %th Email
+        %th Last Sign In
+        %th{:style => "width: 36px;"}
+    %tbody
+      = render @users
+= will_paginate(@users)
+#myModal.modal.small.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3#myModalLabel Delete Confirmation
+  .modal-body
+    %p.error-text Are you sure you want to delete the user?
+  .modal-footer
+    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
+    %button.btn.btn-danger{"data-dismiss" => "modal"} Delete

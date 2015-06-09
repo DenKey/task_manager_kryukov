@@ -30,7 +30,8 @@ source 'https://rails-assets.org' do
 end
 
 gem 'bootstrap_form'
-
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 group :development, :test do
