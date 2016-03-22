@@ -1,4 +1,5 @@
-== Task Manager
+Task Manager
+============
 
 User can login via GitHub or Facebook, or use simple site registation.
 
