@@ -33,9 +33,12 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
+group :development do
+  gem 'web-console', '~> 2.0'
+end
+
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails'
   gem 'capybara'
