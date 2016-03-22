@@ -1,4 +1,4 @@
-class AddUserToLists < ActiveRecord::Migration
+class AddReferenceToLists < ActiveRecord::Migration
   def change
     add_reference :lists, :user, index: true
     add_foreign_key :lists, :users
