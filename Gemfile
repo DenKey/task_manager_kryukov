@@ -35,6 +35,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 group :development do
   gem 'web-console', '~> 2.0'
+  gem 'mailcatcher'
 end
 
 group :development, :test do
