@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Appkication routes for User' do
-  before(:all) do
+describe 'Application routes for User' do
+  before do
     user = User.create(:email => 'user@example.com', :password => 'password')
   end
 
