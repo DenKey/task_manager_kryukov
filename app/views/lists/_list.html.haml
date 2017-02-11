@@ -9,7 +9,7 @@
       = link_to edit_list_path(list) do
         %span.icon-right.glyphicon.glyphicon-pencil{ "aria-hidden" => "true" }
       \|
-      = link_to list, remote: true,method: :delete, id: "deletelist",data: { confirm: 'Are you sure?' } do
+      = link_to list, remote: true, method: :delete, id: "deletelist", data: { confirm: 'Are you sure?' } do
         %span.icon-right.glyphicon.glyphicon-trash{ "aria-hidden" => "true" }
   #panel-body.panel-body
     #inherit-panel-second.panel.panel-default
@@ -17,10 +17,10 @@
         .pull-left
           %span.glyphicon.glyphicon-plus{"aria-hidden" => "true"}
         .input-group
-          = form_tag(list_todos_path(list_id: list.id),method: :post,class: "form-horizontal") do
+          = form_tag(list_todos_path(list_id: list.id), method: :post, class: "form-horizontal") do
             .input-group-btn
               = text_field_tag :content, nil, class: "form-control", id: "todo-input"
-              = submit_tag "Add Task", class: "btn btn-success"
+              = submit_tag "Add", class: "btn btn-success"
       #inherit-panel-body.panel-body
         .table-responsive
           %table.table.table-hover
