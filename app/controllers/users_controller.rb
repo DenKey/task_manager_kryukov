@@ -19,8 +19,8 @@ class UsersController < ApplicationController
 
   def finish_signup
     if request.patch? && params[:user]
-      @user = User.find_by(id: current_user.id)
-      if @user.update!(email: user_params[:email])
+      @user = User.find(current_user)
+      if @user.update(email: user_params[:email])
         sign_in(@user, :bypass => true)
         redirect_to edit_user_registration_path , notice: 'Your profile was successfully updated.'
       else

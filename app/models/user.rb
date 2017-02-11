@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  TEMP_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   TEMP_EMAIL_PREFIX = 'oauth@me'
 
   has_many :list, dependent: :destroy
@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+  validates :email, format: { with: VALID_EMAIL_REGEX, message: "Please enter correct email"}
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   end
 
   def email_verified?
-    self.email && self.email !~ TEMP_EMAIL_REGEX
+    self.email && self.email !~ /oauth@me/
   end
 
   def admin?
