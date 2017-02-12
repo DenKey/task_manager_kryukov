@@ -20,7 +20,6 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-facebook'
-gem 'omniauth-linkedin'
 
 # Added Bootstrap
 gem 'bootstrap-sass', '>= 3.3.3'
